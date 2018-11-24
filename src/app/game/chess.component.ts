@@ -14,7 +14,6 @@ export type Result = -1 | 0 | 1;
 export type Delta = [number, number];
 export type Position = [number, number];
 
-// "abstract class"
 export abstract class Piece {
     constructor(public kind: PieceKind) {}
 
