@@ -97,16 +97,16 @@ export class Rook extends Piece {
     }
     moves(pos: Position): Position[] {
         const positions = [];
-        for (let i = -1; i <= 1; i++) {
-            const js = (i === 0) ? [1, -1] : [0];
-            for (const j of js) {
-                for (let n = 1; n <= 7; n++) {
-                    const x = n * i;
-                    const y = n * j;
-                    this.add(pos, [x, y], positions);
-                }
-            }
-        }
+        // for (let i = -1; i <= 1; i++) {
+        //     const js = (i === 0) ? [1, -1] : [0];
+        //     for (const j of js) {
+        //         for (let n = 1; n <= 7; n++) {
+        //             const x = n * i;
+        //             const y = n * j;
+        //             this.add(pos, [x, y], positions);
+        //         }
+        //     }
+        // }
         return positions;
     }
 }
@@ -119,6 +119,26 @@ export class Bishop extends Piece {
         const positions = [];
         for (let i = -1; i <= 1; i += 2) {
             for (let j = -1; j <= 1; j += 2) {
+                for (let n = 1; n <= 7; n++) {
+                    const x = n * i;
+                    const y = n * j;
+                    this.add(pos, [x, y], positions);
+                }
+            }
+        }
+        return positions;
+    }
+}
+
+export class Knight extends Piece {
+    constructor() {
+        super('knight');
+    }
+    moves(pos: Position): Position[] {
+        const positions = [];
+        for (let i = -1; i <= 1; i++) {
+            const js = (i === 0) ? [1, -1] : [0];
+            for (const j of js) {
                 for (let n = 1; n <= 7; n++) {
                     const x = n * i;
                     const y = n * j;
